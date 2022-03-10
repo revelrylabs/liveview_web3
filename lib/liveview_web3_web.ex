@@ -37,6 +37,8 @@ defmodule LiveviewWeb3Web do
       import Phoenix.Controller,
         only: [get_flash: 1, get_flash: 2, view_module: 1, view_template: 1]
 
+      import LiveviewWeb3Web.Page
+
       # Include shared imports and aliases for views
       unquote(view_helpers())
     end
@@ -88,6 +90,9 @@ defmodule LiveviewWeb3Web do
     quote do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
+
+      # Use Petal Components
+      use PetalComponents
 
       # Import LiveView and .heex helpers (live_render, live_patch, <.form>, etc)
       import Phoenix.LiveView.Helpers
