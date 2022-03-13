@@ -3,11 +3,12 @@ defmodule Web3XLiveviewWeb.PageLive do
 
   @impl true
   def mount(_params, session, socket) do
-    {:ok, assign(socket, [
-      modal: false,
-      pagination_page: 1,
-      color_scheme: session["color_scheme"]
-    ])}
+    {:ok,
+     assign(socket,
+       modal: false,
+       pagination_page: 1,
+       color_scheme: session["color_scheme"]
+     )}
   end
 
   @impl true
@@ -15,8 +16,10 @@ defmodule Web3XLiveviewWeb.PageLive do
     case socket.assigns.live_action do
       :index ->
         {:noreply, assign(socket, modal: false)}
+
       :modal ->
         {:noreply, assign(socket, modal: params["size"])}
+
       :pagination ->
         {:noreply, assign(socket, pagination_page: String.to_integer(params["page"]))}
     end
@@ -72,9 +75,9 @@ defmodule Web3XLiveviewWeb.PageLive do
         <.pagination
           link_type="live_patch"
           path="/live/pagination/:page"
-          current_page={@pagination_page} total_pages={10}
+          current_page={@pagination_page}
+          total_pages={10}
         />
-
       </.container>
     </div>
     """

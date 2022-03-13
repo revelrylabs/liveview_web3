@@ -13,19 +13,31 @@
     <.h2 underline label="Containers" />
   </.container>
 
-  <.container max_width="full" class="flex items-center justify-center h-10 my-5 bg-gray-100 dark:bg-gray-800 dark:text-gray-400">
+  <.container
+    max_width="full"
+    class="flex items-center justify-center h-10 my-5 bg-gray-100 dark:bg-gray-800 dark:text-gray-400"
+  >
     Max width "full"
   </.container>
 
-  <.container max_width="lg" class="flex items-center justify-center h-10 my-5 bg-gray-100 dark:bg-gray-800 dark:text-gray-400">
+  <.container
+    max_width="lg"
+    class="flex items-center justify-center h-10 my-5 bg-gray-100 dark:bg-gray-800 dark:text-gray-400"
+  >
     Max width "lg"
   </.container>
 
-  <.container max_width="md" class="flex items-center justify-center h-10 my-5 bg-gray-100 dark:bg-gray-800 dark:text-gray-400">
+  <.container
+    max_width="md"
+    class="flex items-center justify-center h-10 my-5 bg-gray-100 dark:bg-gray-800 dark:text-gray-400"
+  >
     Max width "md"
   </.container>
 
-  <.container max_width="sm" class="flex items-center justify-center h-10 my-5 bg-gray-100 dark:bg-gray-800 dark:text-gray-400">
+  <.container
+    max_width="sm"
+    class="flex items-center justify-center h-10 my-5 bg-gray-100 dark:bg-gray-800 dark:text-gray-400"
+  >
     Max width "sm"
   </.container>
 
@@ -34,10 +46,33 @@
       <.h2 underline label="Links" />
       <.h5 label="Types" />
       <div class="flex flex-wrap gap-2 text-gray-300">
-        <.link link_type="a" to="/" class="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:underline" label="Link" /> |
-        <.link method={:put} to="/" class="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:underline" label="Link with method" /> |
-        <.link link_type="live_patch" to="/" class="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:underline" label="Live Patch" /> |
-        <.link link_type="live_redirect" to="/" class="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:underline" label="Live Redirect" />
+        <.link
+          link_type="a"
+          to="/"
+          class="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:underline"
+          label="Link"
+        />
+        |
+        <.link
+          method={:put}
+          to="/"
+          class="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:underline"
+          label="Link with method"
+        />
+        |
+        <.link
+          link_type="live_patch"
+          to="/"
+          class="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:underline"
+          label="Live Patch"
+        />
+        |
+        <.link
+          link_type="live_redirect"
+          to="/"
+          class="text-gray-700 dark:text-gray-400 hover:text-gray-900 hover:underline"
+          label="Live Redirect"
+        />
       </div>
     </div>
   </.container>
@@ -144,8 +179,23 @@
         <.icon_button to="/" link_type="button" size="lg" color="success" icon={:trash} />
         <.icon_button to="/" link_type="button" size="lg" color="warning" icon={:arrow_circle_up} />
         <.icon_button to="/" link_type="button" size="xl" color="danger" icon={:arrow_circle_up} />
-        <.icon_button to="/" disabled link_type="button" size="lg" icon={:save} class="!text-green-600" />
-        <.icon_button to="/" disabled loading link_type="button" size="xl" icon={:trash} class="!text-indigo-600 !dark:text-indigo-300" />
+        <.icon_button
+          to="/"
+          disabled
+          link_type="button"
+          size="lg"
+          icon={:save}
+          class="!text-green-600"
+        />
+        <.icon_button
+          to="/"
+          disabled
+          loading
+          link_type="button"
+          size="xl"
+          icon={:trash}
+          class="!text-indigo-600 !dark:text-indigo-300"
+        />
       </div>
     </div>
   </.container>
@@ -241,67 +291,41 @@
     <.h2 underline label="Alerts" />
     <.h5 label="Default" class="mt-10" />
     <div class="flex items-start">
-      <.alert
-        color="info"
-        label="This is an info state"
-      />
+      <.alert color="info" label="This is an info state" />
     </div>
     <div class="flex items-start mt-4">
-      <.alert
-        color="success"
-        label="This is a success state"
-      />
+      <.alert color="success" label="This is a success state" />
     </div>
     <div class="flex items-start mt-4">
-      <.alert
-        color="warning"
-        label="This is a warning state"
-      />
+      <.alert color="warning" label="This is a warning state" />
     </div>
     <div class="flex items-start mt-4">
-      <.alert
-        color="danger">
+      <.alert color="danger">
         This is a danger state that is very long
       </.alert>
     </div>
     <div class="flex items-start max-w-sm mt-4">
-      <.alert
-        heading="Optional heading that is too long">
+      <.alert heading="Optional heading that is too long">
         This is quite a long paragraph that takes up more than one line.
       </.alert>
     </div>
     <.h5 label="With state icon" class="mt-10" />
     <div class="flex items-start">
-      <.alert
-        with_icon
-        color="info"
-        label="This is an info state"
-      />
+      <.alert with_icon color="info" label="This is an info state" />
     </div>
     <div class="flex items-start mt-4">
-      <.alert
-        with_icon
-        color="success"
-        label="This is a success state"
-      />
+      <.alert with_icon color="success" label="This is a success state" />
     </div>
     <div class="flex items-start mt-4">
-      <.alert
-        with_icon
-        color="warning"
-        label="This is a warning state"
-      />
+      <.alert with_icon color="warning" label="This is a warning state" />
     </div>
     <div class="flex items-start mt-4">
-      <.alert with_icon
-        color="danger">
+      <.alert with_icon color="danger">
         This is a danger state that is very long
       </.alert>
     </div>
     <div class="flex items-start max-w-sm mt-4">
-      <.alert
-        with_icon
-        heading="Optional heading that is too long">
+      <.alert with_icon heading="Optional heading that is too long">
         This is quite a long paragraph that takes up more than one line.
       </.alert>
     </div>
@@ -336,7 +360,11 @@
       </.alert>
     </div>
     <div class="flex items-start max-w-sm mt-4">
-      <.alert with_icon close_button_properties={["phx-click": "do_something"]} heading="Optional heading that is too long">
+      <.alert
+        with_icon
+        close_button_properties={["phx-click": "do_something"]}
+        heading="Optional heading that is too long"
+      >
         This is quite a long paragraph that takes up more than one line.
       </.alert>
     </div>
@@ -345,38 +373,44 @@
   <.container>
     <.h2 underline label="Forms" class="mt-10" />
 
-    <.form let={f} multipart as={:user} for={%Ecto.Changeset{
-      action: :update,
-      data: %{name: ""},
-      errors: [
-        text_input_with_error: {"can't be blank", [validation: :required]},
-        text_input_with_error: {"must be at least 2 characters", [validation: :minimum]},
-        number_input_with_error: {"can't be blank", [validation: :required]},
-        email_input_with_error: {"can't be blank", [validation: :required]},
-        password_input_with_error: {"can't be blank", [validation: :required]},
-        search_input_with_error: {"can't be blank", [validation: :required]},
-        telephone_input_with_error: {"can't be blank", [validation: :required]},
-        url_input_with_error: {"can't be blank", [validation: :required]},
-        time_input_with_error: {"can't be blank", [validation: :required]},
-        time_select_with_error: {"can't be blank", [validation: :required]},
-        date_select_with_error: {"can't be blank", [validation: :required]},
-        date_input_with_error: {"can't be blank", [validation: :required]},
-        datetime_select_with_error: {"can't be blank", [validation: :required]},
-        datetime_local_input_with_error: {"can't be blank", [validation: :required]},
-        color_input_with_error: {"can't be blank", [validation: :required]},
-        file_input_with_error: {"can't be blank", [validation: :required]},
-        range_input_with_error: {"can't be blank", [validation: :required]},
-        textarea_with_error: {"can't be blank", [validation: :required]},
-        select_with_error: {"can't be blank", [validation: :required]},
-        checkbox_with_error: {"can't be blank", [validation: :required]},
-        checkbox_group_col_with_error: {"can't be blank", [validation: :required]},
-        checkbox_group_row_with_error: {"can't be blank", [validation: :required]},
-        radio_with_error: {"can't be blank", [validation: :required]},
-        radio_group_col_with_error: {"can't be blank", [validation: :required]},
-        radio_group_row_with_error: {"can't be blank", [validation: :required]},
-      ]}
-    }>
-
+    <.form
+      let={f}
+      multipart
+      as={:user}
+      for={
+        %Ecto.Changeset{
+          action: :update,
+          data: %{name: ""},
+          errors: [
+            text_input_with_error: {"can't be blank", [validation: :required]},
+            text_input_with_error: {"must be at least 2 characters", [validation: :minimum]},
+            number_input_with_error: {"can't be blank", [validation: :required]},
+            email_input_with_error: {"can't be blank", [validation: :required]},
+            password_input_with_error: {"can't be blank", [validation: :required]},
+            search_input_with_error: {"can't be blank", [validation: :required]},
+            telephone_input_with_error: {"can't be blank", [validation: :required]},
+            url_input_with_error: {"can't be blank", [validation: :required]},
+            time_input_with_error: {"can't be blank", [validation: :required]},
+            time_select_with_error: {"can't be blank", [validation: :required]},
+            date_select_with_error: {"can't be blank", [validation: :required]},
+            date_input_with_error: {"can't be blank", [validation: :required]},
+            datetime_select_with_error: {"can't be blank", [validation: :required]},
+            datetime_local_input_with_error: {"can't be blank", [validation: :required]},
+            color_input_with_error: {"can't be blank", [validation: :required]},
+            file_input_with_error: {"can't be blank", [validation: :required]},
+            range_input_with_error: {"can't be blank", [validation: :required]},
+            textarea_with_error: {"can't be blank", [validation: :required]},
+            select_with_error: {"can't be blank", [validation: :required]},
+            checkbox_with_error: {"can't be blank", [validation: :required]},
+            checkbox_group_col_with_error: {"can't be blank", [validation: :required]},
+            checkbox_group_row_with_error: {"can't be blank", [validation: :required]},
+            radio_with_error: {"can't be blank", [validation: :required]},
+            radio_group_col_with_error: {"can't be blank", [validation: :required]},
+            radio_group_row_with_error: {"can't be blank", [validation: :required]}
+          ]
+        }
+      }
+    >
       <!--
         When creating form fields you can do it two ways:
 
@@ -385,7 +419,6 @@
 
         The following code shows both methods for each form element:
       -->
-
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
           <.form_label form={f} field={:text_input} />
@@ -531,7 +564,11 @@
         </div>
 
         <div>
-          <.form_field type="datetime_local_input" form={f} field={:datetime_local_input_with_error} />
+          <.form_field
+            type="datetime_local_input"
+            form={f}
+            field={:datetime_local_input_with_error}
+          />
         </div>
       </div>
 
@@ -598,18 +635,14 @@
       <div class="grid grid-cols-1 gap-4 mb-6 md:grid-cols-2">
         <div>
           <.form_label form={f} field={:select} />
-          <.select
-            options={["Admin": "admin", "User": "user"]}
-            form={f}
-            field={:select}
-          />
+          <.select options={[Admin: "admin", User: "user"]} form={f} field={:select} />
           <.form_field_error form={f} field={:select} class="mt-1" />
         </div>
 
         <div>
           <.form_field
             type="select"
-            options={["Admin": "admin", "User": "user"]}
+            options={[Admin: "admin", User: "user"]}
             form={f}
             field={:select_with_error}
           />
@@ -618,7 +651,9 @@
 
       <div class="grid grid-cols-1 gap-4 mb-6 md:grid-cols-2">
         <div>
-          <label class="inline-flex items-center gap-3 mb-6 text-sm text-gray-900 dark:text-gray-200">
+          <label
+            class="inline-flex items-center gap-3 mb-6 text-sm text-gray-900 dark:text-gray-200"
+          >
             <.checkbox form={f} field={:checkbox} />
             <div>I accept</div>
           </label>
@@ -627,7 +662,12 @@
         </div>
 
         <div>
-          <.form_field type="checkbox" form={f} field={:checkbox_with_error} label="I accept (with error)" />
+          <.form_field
+            type="checkbox"
+            form={f}
+            field={:checkbox_with_error}
+            label="I accept (with error)"
+          />
         </div>
       </div>
 
@@ -637,12 +677,14 @@
             type="checkbox_group"
             form={f}
             field={:checkbox_group_col}
-            options={[
-              {"Option 1", "option_1"},
-              {"Option 2", "option_2"},
-              {"Option 3", "option_3"},
-              {"Option 4", "option_4"}
-            ]}
+            options={
+              [
+                {"Option 1", "option_1"},
+                {"Option 2", "option_2"},
+                {"Option 3", "option_3"},
+                {"Option 4", "option_4"}
+              ]
+            }
           />
         </div>
         <div>
@@ -650,12 +692,14 @@
             type="checkbox_group"
             form={f}
             field={:checkbox_group_col_with_error}
-            options={[
-              {"Option 1", "option_1"},
-              {"Option 2", "option_2"},
-              {"Option 3", "option_3"},
-              {"Option 4", "option_4"}
-            ]}
+            options={
+              [
+                {"Option 1", "option_1"},
+                {"Option 2", "option_2"},
+                {"Option 3", "option_3"},
+                {"Option 4", "option_4"}
+              ]
+            }
           />
         </div>
       </div>
@@ -668,12 +712,14 @@
             layout={:row}
             form={f}
             field={:checkbox_group_row}
-            options={[
-              {"Option 1", "option_1"},
-              {"Option 2", "option_2"},
-              {"Option 3", "option_3"},
-              {"Option 4", "option_4"}
-            ]}
+            options={
+              [
+                {"Option 1", "option_1"},
+                {"Option 2", "option_2"},
+                {"Option 3", "option_3"},
+                {"Option 4", "option_4"}
+              ]
+            }
           />
         </div>
         <div>
@@ -683,29 +729,32 @@
             layout={:row}
             form={f}
             field={:checkbox_group_row_with_error}
-            options={[
-              {"Option 1", "option_1"},
-              {"Option 2", "option_2"},
-              {"Option 3", "option_3"},
-              {"Option 4", "option_4"}
-            ]}
+            options={
+              [
+                {"Option 1", "option_1"},
+                {"Option 2", "option_2"},
+                {"Option 3", "option_3"},
+                {"Option 4", "option_4"}
+              ]
+            }
           />
         </div>
       </div>
 
       <div class="grid grid-cols-1 gap-4 mb-6 md:grid-cols-2">
-
         <div>
           <.form_field
             type="radio_group"
             form={f}
             field={:radio_group_col}
             label="Radio group"
-            options={[
-              "Option 1": "option_1",
-              "Option 2": "option_2",
-              "Option 3": "option_3"
-            ]}
+            options={
+              [
+                "Option 1": "option_1",
+                "Option 2": "option_2",
+                "Option 3": "option_3"
+              ]
+            }
           />
         </div>
 
@@ -715,17 +764,18 @@
             form={f}
             field={:radio_group_col_with_error}
             label="Radio group with error"
-            options={[
-              "Option 1": "option_1",
-              "Option 2": "option_2",
-              "Option 3": "option_3"
-            ]}
+            options={
+              [
+                "Option 1": "option_1",
+                "Option 2": "option_2",
+                "Option 3": "option_3"
+              ]
+            }
           />
         </div>
       </div>
 
       <div class="grid grid-cols-1 gap-4 mb-6 md:grid-cols-2">
-
         <div>
           <.form_field
             type="radio_group"
@@ -733,11 +783,13 @@
             field={:radio_group_row}
             layout={:row}
             label="Radio group with row layout"
-            options={[
-              "Option 1": "option_1",
-              "Option 2": "option_2",
-              "Option 3": "option_3"
-            ]}
+            options={
+              [
+                "Option 1": "option_1",
+                "Option 2": "option_2",
+                "Option 3": "option_3"
+              ]
+            }
           />
         </div>
 
@@ -748,11 +800,13 @@
             field={:radio_group_row_with_error}
             layout={:row}
             label="Radio group with row layout and error"
-            options={[
-              "Option 1": "option_1",
-              "Option 2": "option_2",
-              "Option 3": "option_3"
-            ]}
+            options={
+              [
+                "Option 1": "option_1",
+                "Option 2": "option_2",
+                "Option 3": "option_3"
+              ]
+            }
           />
         </div>
       </div>
@@ -776,9 +830,10 @@
 
       <.dropdown>
         <:trigger_element>
-          <.avatar src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg" />
+          <.avatar
+            src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg"
+          />
         </:trigger_element>
-
         <.dropdown_menu_item label="Item 1" />
         <.dropdown_menu_item label="Item 2" />
       </.dropdown>
@@ -790,12 +845,18 @@
 
       <.dropdown>
         <:trigger_element>
-          <div class="inline-flex items-center justify-center w-full align-middle focus:outline-none">
-            <.avatar size="sm" src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg" />
-            <Heroicons.Solid.chevron_down class="w-4 h-4 ml-1 -mr-1 text-gray-400 dark:text-gray-100" />
+          <div
+            class="inline-flex items-center justify-center w-full align-middle focus:outline-none"
+          >
+            <.avatar
+              size="sm"
+              src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg"
+            />
+            <Heroicons.Solid.chevron_down
+              class="w-4 h-4 ml-1 -mr-1 text-gray-400 dark:text-gray-100"
+            />
           </div>
         </:trigger_element>
-
         <.dropdown_menu_item label="Item 1" />
         <.dropdown_menu_item label="Item 2" />
       </.dropdown>
@@ -818,87 +879,142 @@
     <.h2 underline label="Breadcrumbs" />
 
     <.h5 label="Slash" />
-    <.breadcrumbs links={[
-      %{ label: "Link 1", to: "#" },
-      %{ label: "Link 2", to: "#" },
-      %{ label: "Link 3", to: "#" }
-    ]}/>
+    <.breadcrumbs
+      links={
+        [
+          %{label: "Link 1", to: "#"},
+          %{label: "Link 2", to: "#"},
+          %{label: "Link 3", to: "#"}
+        ]
+      }
+    />
 
     <.h5 label="Chevron" class="mt-10" />
-    <.breadcrumbs separator="chevron" links={[
-      %{ label: "Link 1", to: "#" },
-      %{ label: "Link 2", to: "#", link_type: "live_patch" },
-      %{ label: "Link 3", to: "#", link_type: "live_redirect" }
-    ]}/>
+    <.breadcrumbs
+      separator="chevron"
+      links={
+        [
+          %{label: "Link 1", to: "#"},
+          %{label: "Link 2", to: "#", link_type: "live_patch"},
+          %{label: "Link 3", to: "#", link_type: "live_redirect"}
+        ]
+      }
+    />
 
     <.h5 label="Custom CSS" class="mt-10" />
-    <.breadcrumbs class="mt-3" link_class="!text-blue-500 text-sm font-semibold" links={[
-      %{ label: "Link 1", to: "#" },
-      %{ label: "Link 2", to: "#", link_type: "live_patch" },
-      %{ label: "Link 3", to: "#", link_type: "live_redirect" },
-    ]}/>
+    <.breadcrumbs
+      class="mt-3"
+      link_class="!text-blue-500 text-sm font-semibold"
+      links={
+        [
+          %{label: "Link 1", to: "#"},
+          %{label: "Link 2", to: "#", link_type: "live_patch"},
+          %{label: "Link 3", to: "#", link_type: "live_redirect"}
+        ]
+      }
+    />
   </.container>
 
   <.container class="mt-10">
     <.h2 underline label="Avatar" />
     <.h5 label="Basic avatars" />
     <div class="flex flex-wrap items-end gap-2">
-      <.avatar size="xs" src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg" />
-      <.avatar size="sm" src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg" />
-      <.avatar size="md" src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg" />
-      <.avatar size="lg" src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg" />
-      <.avatar size="xl" src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg" />
+      <.avatar
+        size="xs"
+        src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg"
+      />
+      <.avatar
+        size="sm"
+        src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg"
+      />
+      <.avatar
+        size="md"
+        src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg"
+      />
+      <.avatar
+        size="lg"
+        src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg"
+      />
+      <.avatar
+        size="xl"
+        src="https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg"
+      />
     </div>
 
     <.h5 label="Avatars with placeholder icon" class="mt-10" />
     <div class="flex flex-wrap items-end gap-2">
-      <.avatar size="xs"/>
-      <.avatar size="sm"/>
-      <.avatar size="md"/>
-      <.avatar size="lg"/>
-      <.avatar size="xl"/>
+      <.avatar size="xs" />
+      <.avatar size="sm" />
+      <.avatar size="md" />
+      <.avatar size="lg" />
+      <.avatar size="xl" />
     </div>
 
     <.h5 label="Avatar groups stacked" class="mt-10" />
     <div class="flex flex-wrap items-center gap-10">
-      <.avatar_group avatars={[
-        "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png",
-      ]} size="xs" />
-      <.avatar_group avatars={[
-        "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png",
-      ]} size="sm" />
-      <.avatar_group avatars={[
-        "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png",
-      ]} size="md" />
-      <.avatar_group avatars={[
-        "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png",
-      ]} size="lg" />
-      <.avatar_group avatars={[
-        "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png",
-        "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png",
-      ]} size="xl" />
+      <.avatar_group
+        avatars={
+          [
+            "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png"
+          ]
+        }
+        size="xs"
+      />
+      <.avatar_group
+        avatars={
+          [
+            "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png"
+          ]
+        }
+        size="sm"
+      />
+      <.avatar_group
+        avatars={
+          [
+            "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png"
+          ]
+        }
+        size="md"
+      />
+      <.avatar_group
+        avatars={
+          [
+            "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png"
+          ]
+        }
+        size="lg"
+      />
+      <.avatar_group
+        avatars={
+          [
+            "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png",
+            "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png"
+          ]
+        }
+        size="xl"
+      />
     </div>
     <.h5 label="Avatars with placeholder initials" class="mt-10" />
     <div class="flex flex-wrap items-end gap-2 mt-8">
       <.avatar name="Petal Components" size="xs" />
-      <.avatar name="Petal Components" size="sm"/>
+      <.avatar name="Petal Components" size="sm" />
       <.avatar name="PC" />
-      <.avatar name="PC" size="lg"/>
-      <.avatar name="PC" size="xl"/>
+      <.avatar name="PC" size="lg" />
+      <.avatar name="PC" size="xl" />
     </div>
     <.h5 label="Random color generated avatars with placeholder initials" class="mt-10" />
     <div class="flex flex-wrap items-end gap-2 mt-8">
@@ -908,7 +1024,6 @@
       <.avatar name="Will Smith" size="lg" random_color />
       <.avatar name="Peter Jackson" size="xl" random_color />
     </div>
-
   </.container>
 
   <.container class="mt-10">
@@ -916,28 +1031,28 @@
     <.h5 label="Progress bar" />
     <div class="flex flex-col">
       <div class="mt-5">
-      <.form_label label="Primary" />
-      <.progress color="primary" value={15} max={100} class="max-w-xl" />
+        <.form_label label="Primary" />
+        <.progress color="primary" value={15} max={100} class="max-w-xl" />
       </div>
       <div class="mt-5">
-      <.form_label label="Secondary" />
-      <.progress color="secondary" value={30} max={100} class="max-w-xl" />
+        <.form_label label="Secondary" />
+        <.progress color="secondary" value={30} max={100} class="max-w-xl" />
       </div>
       <div class="mt-5">
-      <.form_label label="Info" />
-      <.progress color="info" value={45} max={100} class="max-w-xl" />
+        <.form_label label="Info" />
+        <.progress color="info" value={45} max={100} class="max-w-xl" />
       </div>
       <div class="mt-5">
-      <.form_label label="Success" />
-      <.progress color="success" value={60} max={100} class="max-w-xl" />
+        <.form_label label="Success" />
+        <.progress color="success" value={60} max={100} class="max-w-xl" />
       </div>
       <div class="mt-5">
-      <.form_label label="Warning" />
-      <.progress color="warning" value={75} max={100} class="max-w-xl" />
+        <.form_label label="Warning" />
+        <.progress color="warning" value={75} max={100} class="max-w-xl" />
       </div>
       <div class="mt-5">
-      <.form_label label="Danger" />
-      <.progress color="danger" value={90} max={100} class="max-w-xl" />
+        <.form_label label="Danger" />
+        <.progress color="danger" value={90} max={100} class="max-w-xl" />
       </div>
       <div class="mt-10">
         <.h5 label="Sizes" />
@@ -972,9 +1087,21 @@
       <.form_label label="a" />
       <.pagination link_type="a" class="mb-5" path="/:page" current_page={1} total_pages={10} />
       <.form_label label="Live Patch" />
-      <.pagination link_type="live_patch" class="mb-5" path="/:page" current_page={5} total_pages={10} />
+      <.pagination
+        link_type="live_patch"
+        class="mb-5"
+        path="/:page"
+        current_page={5}
+        total_pages={10}
+      />
       <.form_label label="Live Redirect" />
-      <.pagination link_type="live_redirect" class="mb-5" path="/:page" current_page={10} total_pages={10} />
+      <.pagination
+        link_type="live_redirect"
+        class="mb-5"
+        path="/:page"
+        current_page={10}
+        total_pages={10}
+      />
     </div>
   </.container>
 
@@ -1004,22 +1131,22 @@
     <.tabs>
       <.tab is_active to="/">
         <Heroicons.Solid.home class="w-5 h-5 mr-2" />
-          Home
+        Home
       </.tab>
       <.tab link_type="a" to="/">
         <Heroicons.Solid.office_building class="w-5 h-5 mr-2" />
-          Company
+        Company
       </.tab>
     </.tabs>
     <.h5 label="Tabs underlined with outline icons" class="mt-10" />
     <.tabs underline>
       <.tab underline is_active to="/">
         <Heroicons.Outline.home class="w-5 h-5 mr-2" />
-          Home
+        Home
       </.tab>
       <.tab underline link_type="a" to="/">
         <Heroicons.Outline.office_building class="w-5 h-5 mr-2" />
-          Company
+        Company
       </.tab>
     </.tabs>
   </.container>
@@ -1028,7 +1155,7 @@
     <.h2 underline label="Card" />
     <.h5 label="Basic cards" />
     <div class="grid gap-5 mt-5 md:grid-cols-2 lg:grid-cols-3">
-      <.card >
+      <.card>
         <.card_content category="Article" heading="Enhance your Phoenix development">
           <div class="mt-4 font-light text-gray-500 text-md">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget leo interdum, feugiat ligula eu, facilisis massa. Nunc sollicitudin massa a elit laoreet.
@@ -1052,7 +1179,7 @@
     </div>
     <.h5 label="Outline cards" class="mt-10" />
     <div class="grid gap-5 mt-5 md:grid-cols-2 lg:grid-cols-3">
-      <.card variant="outline" >
+      <.card variant="outline">
         <.card_content category="Article" heading="Enhance your Phoenix development">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget leo interdum, feugiat ligula eu, facilisis massa. Nunc sollicitudin massa a elit laoreet.
         </.card_content>
@@ -1071,19 +1198,25 @@
     <.h5 label="Cards with media" class="mt-10" />
     <div class="grid gap-5 mt-5 md:grid-cols-2 lg:grid-cols-3">
       <.card>
-        <.card_media src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
+        <.card_media
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        />
         <.card_content category="Article" heading="Enhance your Phoenix development">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget leo interdum, feugiat ligula eu, facilisis massa. Nunc sollicitudin massa a elit laoreet.
         </.card_content>
       </.card>
       <.card>
-      <.card_media src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" />
+        <.card_media
+          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+        />
         <.card_content category="Marketing" heading="Tips for lightning fast development">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget leo interdum, feugiat ligula eu, facilisis massa. Nunc sollicitudin massa a elit laoreet.
         </.card_content>
       </.card>
       <.card>
-        <.card_media src="https://images.unsplash.com/photo-1562664377-709f2c337eb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
+        <.card_media
+          src="https://images.unsplash.com/photo-1562664377-709f2c337eb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        />
         <.card_content category="Event" heading="Petal meetup in Melbourne">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget leo interdum, feugiat ligula eu, facilisis massa. Nunc sollicitudin massa a elit laoreet.
         </.card_content>
@@ -1092,7 +1225,9 @@
     <.h5 label="Cards with media and footer" class="mt-10" />
     <div class="grid gap-5 mt-5 md:grid-cols-2 lg:grid-cols-3">
       <.card>
-        <.card_media src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
+        <.card_media
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        />
 
         <.card_content category="Article" heading="Enhance your Phoenix development">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget leo interdum, feugiat ligula eu, facilisis massa. Nunc sollicitudin massa a elit laoreet.
@@ -1100,13 +1235,16 @@
 
         <.card_footer>
           <.button to="/" label="View">
-            <Heroicons.Solid.eye class="w-4 h-4 mr-2" />View
+            <Heroicons.Solid.eye class="w-4 h-4 mr-2" />
+            View
           </.button>
         </.card_footer>
       </.card>
 
       <.card>
-        <.card_media src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" />
+        <.card_media
+          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+        />
 
         <.card_content category="Marketing" heading="Tips for lightning fast development">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget leo interdum, feugiat ligula eu, facilisis massa. Nunc sollicitudin massa a elit laoreet.
@@ -1114,13 +1252,16 @@
 
         <.card_footer>
           <.button to="/" label="View">
-            <Heroicons.Solid.eye class="w-4 h-4 mr-2" />View
+            <Heroicons.Solid.eye class="w-4 h-4 mr-2" />
+            View
           </.button>
         </.card_footer>
       </.card>
 
       <.card>
-        <.card_media src="https://images.unsplash.com/photo-1562664377-709f2c337eb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
+        <.card_media
+          src="https://images.unsplash.com/photo-1562664377-709f2c337eb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        />
 
         <.card_content category="Event" heading="Petal meetup in Melbourne">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget leo interdum, feugiat ligula eu, facilisis massa. Nunc sollicitudin massa a elit laoreet.
@@ -1128,7 +1269,8 @@
 
         <.card_footer>
           <.button to="/" label="View">
-            <Heroicons.Solid.eye class="w-4 h-4 mr-2" />View
+            <Heroicons.Solid.eye class="w-4 h-4 mr-2" />
+            View
           </.button>
         </.card_footer>
       </.card>
@@ -1155,7 +1297,6 @@
             <.td>Engineer</.td>
             <.td>john.smith@example.com</.td>
           </.tr>
-
 
           <.tr>
             <.td>
@@ -1198,7 +1339,12 @@
         <.tr>
           <.td>
             <.user_inner_td
-              avatar_assigns={%{src: "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png"}}
+              avatar_assigns={
+                %{
+                  src:
+                    "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_2_jhs6ww.png"
+                }
+              }
               label="John Smith"
               sub_label="john.smith@example.com"
             />
@@ -1216,7 +1362,12 @@
         <.tr>
           <.td>
             <.user_inner_td
-              avatar_assigns={%{src: "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png"}}
+              avatar_assigns={
+                %{
+                  src:
+                    "https://res.cloudinary.com/wickedsites/image/upload/v1636595188/dummy_data/avatar_1_lc8plf.png"
+                }
+              }
               label="Beth Springs"
               sub_label="beth.springs@example.com"
             />
@@ -1234,7 +1385,12 @@
         <.tr>
           <.td>
             <.user_inner_td
-              avatar_assigns={%{src: "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png"}}
+              avatar_assigns={
+                %{
+                  src:
+                    "https://res.cloudinary.com/wickedsites/image/upload/v1636595189/dummy_data/avatar_14_rkiyfa.png"
+                }
+              }
               label="Peter Knowles"
               sub_label="peter.knowles@example.com"
             />
@@ -1252,7 +1408,12 @@
         <.tr>
           <.td>
             <.user_inner_td
-              avatar_assigns={%{src: "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg"}}
+              avatar_assigns={
+                %{
+                  src:
+                    "https://res.cloudinary.com/wickedsites/image/upload/v1604268092/unnamed_sagz0l.jpg"
+                }
+              }
               label="Sarah Hill"
               sub_label="sarah.hill@example.com"
             />

@@ -47,7 +47,9 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :petal_components, :error_translator_function, {Web3XLiveviewWeb.ErrorHelpers, :translate_error}
+config :petal_components,
+       :error_translator_function,
+       {Web3XLiveviewWeb.ErrorHelpers, :translate_error}
 
 config :tailwind,
   version: "3.0.12",
