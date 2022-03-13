@@ -1,11 +1,11 @@
-defmodule LiveviewWeb3.MixProject do
+defmodule Web3XLiveview.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :liveview_web3,
+      app: :web3_x_liveview,
       version: "0.1.0",
-      elixir: "~> 1.12",
+      elixir: "~> 1.13",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -19,7 +19,7 @@ defmodule LiveviewWeb3.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {LiveviewWeb3.Application, []},
+      mod: {Web3XLiveview.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -33,14 +33,13 @@ defmodule LiveviewWeb3.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:bcrypt_elixir, "~> 2.0"},
       {:phoenix, "~> 1.6.6"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.6"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 3.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, github: "phoenixframework/phoenix_live_view", override: true},
+      {:phoenix_live_view, "~> 0.17.5"},
       {:floki, ">= 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.6"},
       {:esbuild, "~> 0.3", runtime: Mix.env() == :dev},
@@ -50,9 +49,9 @@ defmodule LiveviewWeb3.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
+      {:petal_components, "~> 0.13.4"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
-      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
-      {:petal_components, "~> 0.13.5"}
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
     ]
   end
 
@@ -68,8 +67,11 @@ defmodule LiveviewWeb3.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"],
-      checks: ["credo list --format oneline", "format --check-formatted"]
+      "assets.deploy": [
+        "cmd --cd assets npm run deploy",
+        "esbuild default --minify",
+        "phx.digest"
+      ]
     ]
   end
 end

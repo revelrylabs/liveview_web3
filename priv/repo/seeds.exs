@@ -5,7 +5,7 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     LiveviewWeb3.Repo.insert!(%LiveviewWeb3.SomeSchema{})
+#     Web3XLiveview.Repo.insert!(%Web3XLiveview.SomeSchema{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.

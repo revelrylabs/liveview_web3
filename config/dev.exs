@@ -1,11 +1,11 @@
 import Config
 
 # Configure your database
-config :liveview_web3, LiveviewWeb3.Repo,
+config :web3_x_liveview, Web3XLiveview.Repo,
   username: "postgres",
   password: "postgres",
+  database: "web3_x_liveview_dev",
   hostname: "localhost",
-  database: "liveview_web3_dev",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -15,19 +15,17 @@ config :liveview_web3, LiveviewWeb3.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :liveview_web3, LiveviewWeb3Web.Endpoint,
+config :web3_x_liveview, Web3XLiveviewWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "09uR4Ifqwejrays/fD6ep5hB2orPARaaJH/61ucY+V8vQOg2LdZEGg+p8qVEYbBT",
+  secret_key_base: "47TFd8fpLTZROcN4Lxz/OQ5fz4hVFMNCsSxHKwSrRGZGxDcWKyGH+1uxAtGYn1/Q",
   watchers: [
-    # Start TailwindCSS watcher
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]},
-    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -55,13 +53,14 @@ config :liveview_web3, LiveviewWeb3Web.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :liveview_web3, LiveviewWeb3Web.Endpoint,
+config :web3_x_liveview, Web3XLiveviewWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/liveview_web3_web/(live|views)/.*(ex)$",
-      ~r"lib/liveview_web3_web/templates/.*(eex)$"
+      ~r"lib/web3_x_liveview_web/(live|views)/.*(ex)$",
+      ~r"lib/web3_x_liveview_web/templates/.*(eex)$",
+      ~r"../petal_components/lib/.*(ex)$"
     ]
   ]
 

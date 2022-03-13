@@ -7,15 +7,15 @@
 # General application configuration
 import Config
 
-config :liveview_web3,
-  ecto_repos: [LiveviewWeb3.Repo]
+config :web3_x_liveview,
+  ecto_repos: [Web3XLiveview.Repo]
 
 # Configures the endpoint
-config :liveview_web3, LiveviewWeb3Web.Endpoint,
+config :web3_x_liveview, Web3XLiveviewWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: LiveviewWeb3Web.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: LiveviewWeb3.PubSub,
-  live_view: [signing_salt: "u+CZ1c0M"]
+  render_errors: [view: Web3XLiveviewWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Web3XLiveview.PubSub,
+  live_view: [signing_salt: "Fd8SWPu3"]
 
 # Configures the mailer
 #
@@ -24,7 +24,7 @@ config :liveview_web3, LiveviewWeb3Web.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :liveview_web3, LiveviewWeb3.Mailer, adapter: Swoosh.Adapters.Local
+config :web3_x_liveview, Web3XLiveview.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
@@ -39,18 +39,6 @@ config :esbuild,
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
 
-#  Config TailwindCSS
-config :tailwind,
-  version: "3.0.23",
-  default: [
-    args: ~w(
-            --config=tailwind.config.js
-            --input=css/app.css
-            --output=../priv/static/assets/app.css
-            ),
-    cd: Path.expand("../assets", __DIR__)
-  ]
-
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
@@ -59,10 +47,18 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-# config for PetalComponents errors
-config :petal_components,
-       :error_translator_function,
-       {LiveviewWeb3Web.ErrorHelpers, :translate_error}
+config :petal_components, :error_translator_function, {Web3XLiveviewWeb.ErrorHelpers, :translate_error}
+
+config :tailwind,
+  version: "3.0.12",
+  default: [
+    args: ~w(
+      --config=tailwind.config.js
+      --input=css/app.css
+      --output=../priv/static/assets/app.css
+    ),
+    cd: Path.expand("../assets", __DIR__)
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

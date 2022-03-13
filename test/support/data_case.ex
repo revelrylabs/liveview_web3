@@ -1,4 +1,4 @@
-defmodule LiveviewWeb3.DataCase do
+defmodule Web3XLiveview.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,27 +10,25 @@ defmodule LiveviewWeb3.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use LiveviewWeb3.DataCase, async: true`, although
+  by setting `use Web3XLiveview.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
-
-  # credo:disable-for-this-file
 
   use ExUnit.CaseTemplate
 
   using do
     quote do
-      alias LiveviewWeb3.Repo
+      alias Web3XLiveview.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import LiveviewWeb3.DataCase
+      import Web3XLiveview.DataCase
     end
   end
 
   setup tags do
-    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(LiveviewWeb3.Repo, shared: not tags[:async])
+    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(Web3XLiveview.Repo, shared: not tags[:async])
     on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
     :ok
   end
