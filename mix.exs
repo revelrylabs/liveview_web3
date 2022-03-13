@@ -39,7 +39,7 @@ defmodule Web3XLiveview.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 3.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.17.5"},
+      {:phoenix_live_view, github: "phoenixframework/phoenix_live_view", override: true},
       {:floki, ">= 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.6"},
       {:esbuild, "~> 0.3", runtime: Mix.env() == :dev},
@@ -49,7 +49,7 @@ defmodule Web3XLiveview.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:petal_components, "~> 0.13.4"},
+      {:petal_components, "~> 0.13.5"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
     ]
