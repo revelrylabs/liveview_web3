@@ -32,6 +32,8 @@
             <.email_input
               form={f}
               field={:email}
+              placeholder={gettext("example@example.com")}
+              required="true"
               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
             <.form_field_error form={f} field={:email} class="mt-1" />
@@ -44,6 +46,7 @@
             <.password_input
               form={f}
               field={:password}
+              required="true"
               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
             <.form_field_error form={f} field={:password} class="mt-1" />
