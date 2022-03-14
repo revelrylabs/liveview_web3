@@ -1,26 +1,64 @@
-<h1>Register</h1>
-
-<.form let={f} for={@changeset} action={Routes.user_registration_path(@conn, :create)}>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
-    </div>
-  <% end %>
-
-  <%= label(f, :email) %>
-  <%= email_input(f, :email, required: true) %>
-  <%= error_tag(f, :email) %>
-
-  <%= label(f, :password) %>
-  <%= password_input(f, :password, required: true) %>
-  <%= error_tag(f, :password) %>
-
-  <div>
-    <%= submit("Register") %>
+<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <.h1 class="mt-6 text-center"><%= gettext("Register") %></.h1>
+    <.p class="mt-2 text-center">
+      <%= gettext("Or") %>
+      <.link
+        to={Routes.user_session_path(@conn, :new)}
+        class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline"
+        label="Log in"
+      />
+    </.p>
   </div>
-</.form>
 
-<p>
-  <%= link("Log in", to: Routes.user_session_path(@conn, :new)) %> |
-  <%= link("Forgot your password?", to: Routes.user_reset_password_path(@conn, :new)) %>
-</p>
+  <.card class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <.card_content>
+      <.form
+        let={f}
+        for={@changeset}
+        action={Routes.user_registration_path(@conn, :create)}
+        class="space-y-6"
+      >
+        <%= if @changeset.action do %>
+          <div class="alert alert-danger">
+            <.p><%= gettext("Oops, something went wrong! Please check the errors below.") %></.p>
+          </div>
+        <% end %>
+        <div>
+          <.form_label form={f} field={:email} class="block text-sm font-medium text-gray-700" />
+          <div class="mt-1">
+            <.email_input
+              form={f}
+              field={:email}
+              placeholder={gettext("example@example.com")}
+              required="true"
+              class="appearance-none block w-full px-3 py-2 placeholder-gray-400"
+            />
+            <.form_field_error form={f} field={:email} class="mt-1" />
+          </div>
+        </div>
+
+        <div>
+          <.form_label form={f} field={:password} class="block text-sm font-medium text-gray-700" />
+          <div class="mt-1">
+            <.password_input
+              form={f}
+              field={:password}
+              required="true"
+              class="appearance-none block w-full px-3 py-2 placeholder-gray-400"
+            />
+            <.form_field_error form={f} field={:password} class="mt-1" />
+          </div>
+        </div>
+
+        <div>
+          <.button
+            color="secondary"
+            label="Register"
+            class="w-full flex justify-center py-2 px-4"
+          />
+        </div>
+      </.form>
+    </.card_content>
+  </.card>
+</div>
