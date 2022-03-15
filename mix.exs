@@ -52,7 +52,8 @@ defmodule Web3XLiveview.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:petal_components, "~> 0.13.5"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
-      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:exw3, "~> 0.6"}
     ]
   end
 
