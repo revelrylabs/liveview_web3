@@ -95,9 +95,7 @@ defmodule Web3XLiveviewWeb do
       alias Web3XLiveviewWeb.Router.Helpers, as: Routes
 
       # Import global components
-      import Web3XLiveviewWeb.Components.{
-        ColorSchemeSwitch
-      }
+      # import Web3XLiveviewWeb.Components.{}
 
       use PetalComponents
     end

@@ -2,12 +2,11 @@ defmodule Web3XLiveviewWeb.PageLive do
   use Web3XLiveviewWeb, :live_view
 
   @impl true
-  def mount(_params, session, socket) do
+  def mount(_params, _session, socket) do
     {:ok,
      assign(socket,
        modal: false,
-       pagination_page: 1,
-       color_scheme: session["color_scheme"]
+       pagination_page: 1
      )}
   end
 
@@ -30,9 +29,6 @@ defmodule Web3XLiveviewWeb.PageLive do
     ~H"""
     <div class="h-screen overflow-auto dark:bg-gray-900">
       <nav class="sticky top-0 flex items-center justify-end w-full h-12 bg-white dark:bg-gray-900">
-        <div class="flex justify-end pt-3 pr-3">
-          <.color_scheme_switch color_scheme={@color_scheme} />
-        </div>
       </nav>
       <.container class="mt-10">
         <.link class="underline dark:text-gray-400" to="/">Back</.link>

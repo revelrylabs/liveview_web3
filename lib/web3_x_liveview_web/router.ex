@@ -21,7 +21,6 @@ defmodule Web3XLiveviewWeb.Router do
   scope "/", Web3XLiveviewWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
     live "/live", PageLive, :index
     live "/live/modal/:size", PageLive, :modal
     live "/live/pagination/:page", PageLive, :pagination
@@ -76,7 +75,7 @@ defmodule Web3XLiveviewWeb.Router do
 
     get "/users/register", UserRegistrationController, :new
     post "/users/register", UserRegistrationController, :create
-    get "/users/log_in", UserSessionController, :new
+    get "/", UserSessionController, :new
     post "/users/log_in", UserSessionController, :create
     get "/users/reset_password", UserResetPasswordController, :new
     post "/users/reset_password", UserResetPasswordController, :create
