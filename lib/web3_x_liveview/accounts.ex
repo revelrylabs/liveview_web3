@@ -350,4 +350,11 @@ defmodule Web3XLiveview.Accounts do
       {:error, :user, changeset, _} -> {:error, changeset}
     end
   end
+
+  def add_wallet_and_signature(user_token, params) do
+    user =   get_user_by_session_token(user_token)
+    changeset = User.wallet_changeset(user, params)
+
+    Repo.update(:user, changeset)
+  end
 end

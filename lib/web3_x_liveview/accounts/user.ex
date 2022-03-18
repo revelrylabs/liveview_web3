@@ -7,6 +7,8 @@ defmodule Web3XLiveview.Accounts.User do
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
+    field :public_address, :string
+    field :signature, :string
 
     timestamps()
   end
@@ -109,6 +111,16 @@ defmodule Web3XLiveview.Accounts.User do
   def confirm_changeset(user) do
     now = NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second)
     change(user, confirmed_at: now)
+  end
+
+  @doc """
+  A user changeset for adding a wallet public address and signature
+  """
+  def wallet_changeset(user, attrs, opts \\ []) do
+    user
+    |> cast(attrs, [:public_address, :signature])
+    |> unique_constraint(:public_address)
+    |> unique_constraint(:signature)
   end
 
   @doc """

@@ -11,7 +11,6 @@ defmodule Web3XLiveviewWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug :fetch_current_user
-    plug :set_color_scheme
   end
 
   pipeline :api do
@@ -59,15 +58,6 @@ defmodule Web3XLiveviewWeb.Router do
     end
   end
 
-  # Use this plug to set a "dark" css class on <html> element
-  defp set_color_scheme(conn, _opts) do
-    color_scheme = conn.cookies["color-scheme"] || "dark"
-
-    conn
-    |> assign(:color_scheme, color_scheme)
-    |> put_session(:color_scheme, color_scheme)
-  end
-
   ## Authentication routes
 
   scope "/", Web3XLiveviewWeb do
@@ -75,7 +65,8 @@ defmodule Web3XLiveviewWeb.Router do
 
     get "/users/register", UserRegistrationController, :new
     post "/users/register", UserRegistrationController, :create
-    get "/", UserSessionController, :new
+    live "/", LoginLive, :new
+    live "/modal", LoginLive, :modal
     post "/users/log_in", UserSessionController, :create
     get "/users/reset_password", UserResetPasswordController, :new
     post "/users/reset_password", UserResetPasswordController, :create

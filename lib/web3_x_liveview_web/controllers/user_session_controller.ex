@@ -2,10 +2,10 @@ defmodule Web3XLiveviewWeb.UserSessionController do
   use Web3XLiveviewWeb, :controller
 
   alias Web3XLiveview.Accounts
-  alias Web3XLiveviewWeb.UserAuth
+  alias Web3XLiveviewWeb.{LoginLive, UserAuth}
 
   def new(conn, _params) do
-    render(conn, "new.html", error_message: nil)
+    Phoenix.LiveView.Helpers.live_render(conn, LoginLive, session: %{"error_message" => nil})
   end
 
   def create(conn, %{"user" => user_params}) do
@@ -15,7 +15,9 @@ defmodule Web3XLiveviewWeb.UserSessionController do
       UserAuth.log_in_user(conn, user, user_params)
     else
       # In order to prevent user enumeration attacks, don't disclose whether the email is registered.
-      render(conn, "new.html", error_message: "Invalid email or password")
+      Phoenix.LiveView.Helpers.live_render(conn, LoginLive,
+        session: %{"error_message" => "Invalid email or password"}
+      )
     end
   end
 

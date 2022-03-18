@@ -1,6 +1,14 @@
-<h1>Settings</h1>
+<.h1>Settings</.h1>
 
-<h3>Change email</h3>
+<.h3>Connect with Metamask</.h3>
+
+<div class="flex p-1">
+  <%= live_render(@conn, Web3XLiveviewWeb.MetamaskButtonLive,
+    session: %{"text" => "Connect Metamask", "id" => "metamask-connect"}
+  ) %>
+</div>
+
+<.h3>Change email</.h3>
 
 <.form
   let={f}
@@ -10,7 +18,7 @@
 >
   <%= if @email_changeset.action do %>
     <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
+      <.p>Oops, something went wrong! Please check the errors below.</.p>
     </div>
   <% end %>
 
@@ -33,7 +41,7 @@
   </div>
 </.form>
 
-<h3>Change password</h3>
+<.h3>Change password</.h3>
 
 <.form
   let={f}
@@ -43,7 +51,7 @@
 >
   <%= if @password_changeset.action do %>
     <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
+      <.p>Oops, something went wrong! Please check the errors below.</.p>
     </div>
   <% end %>
 

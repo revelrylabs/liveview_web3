@@ -1,11 +1,10 @@
 <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-md">
-    <.h2 class="mt-6 text-center">Log in</.h2>
+    <.h2 class="mt-6 text-center"><%= gettext("Log in") %></.h2>
     <.p class="mt-2 text-center">
       Or
       <.link
-        link_type="a"
-        to={Routes.user_registration_path(@conn, :new)}
+        to={Routes.user_registration_path(@socket, :new)}
         class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline"
         label="Register"
       />
@@ -16,8 +15,8 @@
     <.card_content>
       <.form
         let={f}
-        for={@conn}
-        action={Routes.user_session_path(@conn, :create)}
+        for={:user}
+        action={Routes.user_session_path(@socket, :create)}
         as={:user}
         class="space-y-6"
       >
@@ -65,7 +64,7 @@
           </div>
           <div class="text-sm align-top">
             <.link
-              to={Routes.user_reset_password_path(@conn, :new)}
+              to={Routes.user_reset_password_path(@socket, :new)}
               class="!font-medium text-sm text-indigo-600 hover:text-indigo-500 hover:underline"
               label="Forgot your password?"
             />
@@ -83,21 +82,15 @@
             <div class="w-full border-t border-gray-300"></div>
           </div>
           <div class="relative flex justify-center text-sm">
-            <span class="px-2 bg-white text-gray-500"><%= gettext("Or continue with") %></span>
+            <span class="px-2 bg-white text-gray-500"><%= gettext("Or") %></span>
           </div>
         </div>
 
         <div class="flex place-content-center pt-1">
-          <span title={gettext("Sign in with Metamask")}>
-            <.button
-              icon
-              color="white"
-              variant="outline"
-              class="w-full inline-flex justify-center py-2 px-4 !border-gray-300 !text-gray-500 !hover:bg-gray-50"
-            >
-              <.icon icon="metamask" size="lg" />
-            </.button>
-          </span>
+          <%= live_render(@socket, Web3XLiveviewWeb.MetamaskButtonLive,
+            id: "connect",
+            session: %{"id" => "metamask-login", "text" => "Log in with Metamask"}
+          ) %>
         </div>
       </div>
     </.card_content>
