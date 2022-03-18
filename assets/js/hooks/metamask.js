@@ -1,3 +1,4 @@
+const web3 = new ethers.providers.Web3Provider(window.ethereum)
 
 
 function init() {
