@@ -23,16 +23,18 @@ export const Metamask = {
         })
 
         window.addEventListener(`phx:connect-metamask`, (e) => {
-
             web3.provider.request({method: 'eth_requestAccounts'}).then((accounts) => {
-                const address = accounts[0]
-                if (address) {
-                    const exampleMessage = 'Signing this message is verification that the Metamask wallet you are using belongs to you.';
-                    const from = accounts[0];
-                    web3.provider.request({
-                        method: 'personal_sign',
-                        params: [exampleMessage, from, 'Example password'],
-                    }).then((signature) => this.pushEvent("wallet-connected", {address: address, signature: signature}))
+                if (accounts.length > 0) {
+                const signer = web3.getSigner();
+                signer.signMessage('Signing this message is verification that the Metamask wallet you are using belongs to you.').then((signature) => {
+
+                    console.log("SIGNATURE:::::: ", signature)
+                    signer.getAddress().then((address) => {
+                        console.log("ADDRESS::::: ", address)
+                        this.pushEvent("wallet-connected", {public_address: address, signature: signature})
+                    });
+
+                })
                 }
             }, (error) => console.log(error))
 
@@ -40,3 +42,4 @@ export const Metamask = {
 
     },
 }
+
