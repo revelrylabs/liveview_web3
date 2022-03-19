@@ -46,7 +46,7 @@ defmodule Web3XLiveviewWeb.MetamaskButtonLive do
     """
   end
 
-   @impl true
+  @impl true
   def handle_event("account-check", params, socket) do
     {:noreply, assign(socket, :connected, params["connected"])}
   end
@@ -58,10 +58,10 @@ defmodule Web3XLiveviewWeb.MetamaskButtonLive do
 
   @impl true
   def handle_event("wallet-connected", params, socket) do
+    {status, user_struct_or_changeset} =
+      Accounts.add_wallet_and_signature(socket.assigns.user_token, params)
 
-    Accounts.add_wallet_and_signature(socket.assigns.user_token, params)
-
-
-    {:noreply, assign(socket, :connected, true)}
+    connected = if status == :ok, do: true, else: false
+    {:noreply, assign(socket, :connected, connected)}
   end
 end

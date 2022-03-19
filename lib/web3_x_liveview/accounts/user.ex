@@ -119,6 +119,7 @@ defmodule Web3XLiveview.Accounts.User do
   def wallet_changeset(user, attrs, opts \\ []) do
     user
     |> cast(attrs, [:public_address, :signature])
+    |> validate_required([:public_address, :signature])
     |> unique_constraint(:public_address)
     |> unique_constraint(:signature)
   end
