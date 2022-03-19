@@ -6,11 +6,9 @@ defmodule Web3XLiveviewWeb.Live.Components.Icons do
 
   def icon(assigns) do
     ~H"""
-    <svg
-      class={
-        "fill-current #{if assigns[:class], do: @class, else: ""} #{if assigns[:size], do: get_icon_size(@size), else: "h-6 w-6"}"
-      }
-    >
+    <svg class={
+      "fill-current #{if assigns[:class], do: @class, else: ""} #{if assigns[:size], do: get_icon_size(@size), else: "h-6 w-6"}"
+    }>
       <use xlink:href={"/images/icons.svg#icon-#{@icon}"}></use>
     </svg>
     """
