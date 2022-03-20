@@ -1,0 +1,13 @@
+[package]
+name = "web3xliveview"
+version = "0.1.0"
+authors = []
+edition = "2018"
+
+[lib]
+name = "web3xliveview"
+path = "src/lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+rustler = "0.24.0"

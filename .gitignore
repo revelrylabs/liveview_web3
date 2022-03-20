@@ -37,3 +37,4 @@ npm-debug.log
 *.iml
 
 /priv/cert/
+/truffle/node_modules/
