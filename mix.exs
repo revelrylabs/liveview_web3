@@ -53,7 +53,7 @@ defmodule Web3XLiveview.MixProject do
       {:petal_components, "~> 0.13.5"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
-      {:exw3, "~> 0.6"}
+      {:web3x, "~> 0.6.4"}
     ]
   end
 
