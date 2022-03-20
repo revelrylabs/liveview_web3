@@ -1,10 +1,40 @@
-<ul>
-  <%= if @current_user do %>
-    <li><%= @current_user.email %></li>
-    <li><%= link("Settings", to: Routes.user_settings_path(@conn, :edit)) %></li>
-    <li><%= link("Log out", to: Routes.user_session_path(@conn, :delete), method: :delete) %></li>
-  <% else %>
-    <li><%= link("Register", to: Routes.user_registration_path(@conn, :new)) %></li>
-    <li><%= link("Log in", to: Routes.login_path(@conn, :new)) %></li>
-  <% end %>
-</ul>
+<header class="bg-indigo-600">
+  <nav class="mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
+    <div class="w-full py-6 flex items-center justify-between border-b border-indigo-500 lg:border-none">
+      <div class="flex items-center">
+        <.link
+          to="/live"
+          class="text-base font-medium text-white hover:text-indigo-50"
+          label="Web3 X Liveview"
+        />
+      </div>
+      <div class="ml-10 space-x-4 text-base font-medium text-white">
+        <%= if @current_user do %>
+          <div class="items-center pb-4"><%= @current_user.email %></div>
+          <.link
+              to={Routes.user_settings_path(@conn, :edit)}
+              class="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75"
+              label="Settings"
+            />
+          <.link
+              to={Routes.user_session_path(@conn, :delete)}
+              method={:delete}
+              class="inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-indigo-50"
+              label="Log out"
+            />
+        <% else %>
+          <.link
+            to={Routes.user_session_path(@conn, :new)}
+            class="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75"
+            label="Log in"
+          />
+          <.link
+            to={Routes.user_registration_path(@socket, :new)}
+            class="inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-indigo-50"
+            label="Register"
+          />
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</header>

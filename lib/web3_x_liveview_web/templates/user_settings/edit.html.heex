@@ -1,79 +1,68 @@
-<.h1>Settings</.h1>
-
-<.h3>Connect with Metamask</.h3>
-
-<div class="flex p-1">
-  <%= live_render(@conn, Web3XLiveviewWeb.MetamaskButtonLive,
-    session: %{"text" => "Connect Metamask", "id" => "metamask-connect"}
-  ) %>
-</div>
-
-<.h3>Change email</.h3>
-
-<.form
-  let={f}
-  for={@email_changeset}
-  action={Routes.user_settings_path(@conn, :update)}
-  id="update_email"
->
-  <%= if @email_changeset.action do %>
-    <div class="alert alert-danger">
-      <.p>Oops, something went wrong! Please check the errors below.</.p>
-    </div>
-  <% end %>
-
-  <%= hidden_input(f, :action, name: "action", value: "update_email") %>
-
-  <%= label(f, :email) %>
-  <%= email_input(f, :email, required: true) %>
-  <%= error_tag(f, :email) %>
-
-  <%= label(f, :current_password, for: "current_password_for_email") %>
-  <%= password_input(f, :current_password,
-    required: true,
-    name: "current_password",
-    id: "current_password_for_email"
-  ) %>
-  <%= error_tag(f, :current_password) %>
-
-  <div>
-    <%= submit("Change email") %>
+<.container>
+  <div class="flex justify-center py-4">
+    <.h1>Settings</.h1>
   </div>
-</.form>
 
-<.h3>Change password</.h3>
+  <div class="p-4">
+    <.h3>Connect with Metamask</.h3>
 
-<.form
-  let={f}
-  for={@password_changeset}
-  action={Routes.user_settings_path(@conn, :update)}
-  id="update_password"
->
-  <%= if @password_changeset.action do %>
-    <div class="alert alert-danger">
-      <.p>Oops, something went wrong! Please check the errors below.</.p>
+    <div class="flex py-4">
+      <%= live_render(@conn, Web3XLiveviewWeb.MetamaskButtonLive,
+        session: %{"text" => "Connect Metamask", "id" => "metamask-connect"}
+      ) %>
     </div>
-  <% end %>
-
-  <%= hidden_input(f, :action, name: "action", value: "update_password") %>
-
-  <%= label(f, :password, "New password") %>
-  <%= password_input(f, :password, required: true) %>
-  <%= error_tag(f, :password) %>
-
-  <%= label(f, :password_confirmation, "Confirm new password") %>
-  <%= password_input(f, :password_confirmation, required: true) %>
-  <%= error_tag(f, :password_confirmation) %>
-
-  <%= label(f, :current_password, for: "current_password_for_password") %>
-  <%= password_input(f, :current_password,
-    required: true,
-    name: "current_password",
-    id: "current_password_for_password"
-  ) %>
-  <%= error_tag(f, :current_password) %>
-
-  <div>
-    <%= submit("Change password") %>
   </div>
-</.form>
+
+  <div class="max-w-md p-4">
+    <.h3>Change email</.h3>
+
+    <.form
+      let={f}
+      for={@email_changeset}
+      action={Routes.user_settings_path(@conn, :update)}
+      id="update_email"
+    >
+      <%= if @email_changeset.action do %>
+        <div class="alert alert-danger">
+          <.p>Oops, something went wrong! Please check the errors below.</.p>
+        </div>
+      <% end %>
+
+      <%= hidden_input(f, :action, name: "action", value: "update_email") %>
+
+      <.form_field type="email_input" form={f} field={:email} required />
+      <.form_field type="password_input" form={f} field={:current_password} required />
+
+      <div class="pb-4">
+        <.button size="lg" label="Change Email" class="ml-auto" />
+      </div>
+    </.form>
+  </div>
+
+  <div class="max-w-md p-4">
+    <.h3>Change password</.h3>
+
+    <.form
+      let={f}
+      for={@password_changeset}
+      action={Routes.user_settings_path(@conn, :update)}
+      id="update_password"
+    >
+      <%= if @password_changeset.action do %>
+        <div class="alert alert-danger">
+          <.p>Oops, something went wrong! Please check the errors below.</.p>
+        </div>
+      <% end %>
+
+      <%= hidden_input(f, :action, name: "action", value: "update_password") %>
+
+      <.form_field type="password_input" form={f} label="New Password" field={:password} required />
+      <.form_field type="password_input" form={f} field={:password_confirmation} required />
+      <.form_field type="password_input" form={f} field={:current_password} required />
+
+      <div class="py-4">
+        <.button size="lg" label="Change Password" class="ml-auto" />
+      </div>
+    </.form>
+  </div>
+</.container>
