@@ -56,9 +56,9 @@
 
       <%= hidden_input(f, :action, name: "action", value: "update_password") %>
 
+      <.form_field type="password_input" form={f} field={:current_password} required />
       <.form_field type="password_input" form={f} label="New Password" field={:password} required />
       <.form_field type="password_input" form={f} field={:password_confirmation} required />
-      <.form_field type="password_input" form={f} field={:current_password} required />
 
       <div class="py-4">
         <.button size="lg" label="Change Password" class="ml-auto" />

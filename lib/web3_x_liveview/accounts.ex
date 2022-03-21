@@ -357,4 +357,17 @@ defmodule Web3XLiveview.Accounts do
     |> User.wallet_changeset(params)
     |> Repo.update()
   end
+
+  def find_user_by_public_address(public_address) do
+    Repo.get_by(User, public_address: public_address)
+  end
+
+  def verify_message_signature(public_address) do
+    message =
+      "Signing this message is verification that the Metamask wallet you are using belongs to you."
+
+    with user = %User{} <- find_user_by_public_address(public_address),
+         true <- Web3x.Wallet.verify_message?(user.public_address, message, user.signature),
+         do: user
+  end
 end

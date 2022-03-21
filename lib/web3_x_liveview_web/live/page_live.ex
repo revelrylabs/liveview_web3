@@ -17,7 +17,7 @@ defmodule Web3XLiveviewWeb.PageLive do
         <div class="flex place-content-start">
           <%= live_render(@socket, Web3XLiveviewWeb.MetamaskButtonLive,
             id: "connect",
-            session: %{"id" => "metamask-login", "text" => "Log in with Metamask"}
+            session: %{"id" => "metamask-connect", "text" => "Connect to Metamask"}
           ) %>
         </div>
         <div class="flex place-content-end">
@@ -25,7 +25,7 @@ defmodule Web3XLiveviewWeb.PageLive do
             <.button size="lg" label="Mint NFT" class="ml-auto" to="/" />
           </div>
           <div class="p-2">
-            <.button size="lg" label="Coin Transaction" class="ml-auto" to="/"/>
+            <.button size="lg" label="Coin Transaction" class="ml-auto" to="/" />
           </div>
         </div>
       </div>
@@ -79,12 +79,12 @@ defmodule Web3XLiveviewWeb.PageLive do
   defp table_row(assigns) do
     ~H"""
     <.tr>
-        <.td>
-          John Smith
-        </.td>
-        <.td>Engineer</.td>
-        <.td>john.smith@example.com</.td>
-      </.tr>
+      <.td>
+        John Smith
+      </.td>
+      <.td>Engineer</.td>
+      <.td>john.smith@example.com</.td>
+    </.tr>
     """
   end
 end

@@ -1,5 +1,4 @@
-const web3 = new ethers.providers.Web3Provider(window.ethereum)
-
+const web3Provider = new ethers.providers.Web3Provider(window.ethereum)
 
 function init() {
 
@@ -7,26 +6,38 @@ function init() {
     // as otherwise MetaMask won't be available
     if (location.protocol !== 'https:') {
         console.log("FAILING AT HTTPS")
-        this.pushEvent("https-check-failed", {https: false})
     }
 }
 
 
 export const Metamask = {
     mounted() {
+        let signer = web3Provider.getSigner()
+        const message = 'Signing this message is verification that the Metamask wallet you are using belongs to you.'
+
         window.addEventListener('load', async () => {
             init();
+            let address
+            web3Provider.listAccounts().then((accounts) => {
+                if (accounts.length > 0) {
+                    signer = web3Provider.getSigner();
+                    address = signer.getAddress().then((address) => {return address});
+                }
+                this.pushEvent("account-check", {connected: accounts.length > 0, current_wallet_address: address})
+            })
+        })
 
-            web3.listAccounts().then((accounts) => {
-                this.pushEvent("account-check", {connected: accounts.length > 0})
+        window.addEventListener(`phx:get-current-wallet`, (e) => {
+            signer.getAddress().then((address) => {
+
+                this.pushEvent("verify-signature", {current_wallet_address: address})
             })
         })
 
         window.addEventListener(`phx:connect-metamask`, (e) => {
-            web3.provider.request({method: 'eth_requestAccounts'}).then((accounts) => {
+            web3Provider.provider.request({method: 'eth_requestAccounts'}).then((accounts) => {
                 if (accounts.length > 0) {
-                const signer = web3.getSigner();
-                signer.signMessage('Signing this message is verification that the Metamask wallet you are using belongs to you.').then((signature) => {
+                signer.signMessage(message).then((signature) => {
 
                     console.log("SIGNATURE:::::: ", signature)
                     signer.getAddress().then((address) => {
