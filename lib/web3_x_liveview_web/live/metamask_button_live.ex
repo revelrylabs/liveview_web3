@@ -107,7 +107,6 @@ defmodule Web3XLiveviewWeb.MetamaskButtonLive do
 
   @impl true
   def handle_event("wallet-connected", params, socket) do
-    #    Web3x.Contract.deploy(:VerifySignature, bin: contract["bytecode"], options: %{gas: 3000000, from: params["public_address"]})
     {status, _user_struct_or_changeset} =
       Accounts.add_wallet_and_signature(socket.assigns.user_token, params)
 
