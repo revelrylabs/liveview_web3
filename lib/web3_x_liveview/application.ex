@@ -14,11 +14,16 @@ defmodule Web3XLiveview.Application do
       Web3XLiveviewWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: Web3XLiveview.PubSub},
+      # Start Presence
+      Web3XLiveviewWeb.Presence,
       # Start the Endpoint (http/https)
       Web3XLiveviewWeb.Endpoint
       # Start a worker by calling: Web3XLiveview.Worker.start_link(arg)
       # {Web3XLiveview.Worker, arg}
     ]
+
+    # Start Web3x Contract link
+    Web3x.Contract.start_link()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
