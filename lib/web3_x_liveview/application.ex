@@ -24,6 +24,8 @@ defmodule Web3XLiveview.Application do
 
     # Start Web3x Contract link
     Web3x.Contract.start_link()
+    # Register all contracts with Web3x so we can access them
+    Web3XLiveview.SmartContracts.register_all()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
