@@ -11,10 +11,6 @@ contract Token is ERC721URIStorage {
     uint256 private _tokensCount = 0;
     address public minter = address(0);
 
-    event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);
-    event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);
-    event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);
-
 
     modifier onlyMinter(){
         require(
