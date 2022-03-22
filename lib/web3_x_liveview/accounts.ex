@@ -351,6 +351,10 @@ defmodule Web3XLiveview.Accounts do
     end
   end
 
+  @doc """
+  Adds public_address from wallet and signature hash returned from message signing to user data
+  params = %{public_address: :string, signature: :string}
+  """
   def add_wallet_and_signature(user_token, params) do
     user_token
     |> get_user_by_session_token()
@@ -358,10 +362,18 @@ defmodule Web3XLiveview.Accounts do
     |> Repo.update()
   end
 
+  @doc """
+  Uses the public_address of the current wallet to find a user
+  Returns a user or nil
+  """
   def find_user_by_public_address(public_address) do
     Repo.get_by(User, public_address: public_address)
   end
 
+  @doc """
+  Verifies the public address passed in was used to create the signature for a user
+  Returns %User{} or nil
+  """
   def verify_message_signature(public_address) do
     message =
       "Signing this message is verification that the Metamask wallet you are using belongs to you."
