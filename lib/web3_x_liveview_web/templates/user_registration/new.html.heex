@@ -4,7 +4,7 @@
     <.p class="mt-2 text-center">
       <%= gettext("Or") %>
       <.link
-        to={Routes.user_session_path(@conn, :new)}
+        to={Routes.login_path(@conn, :new)}
         class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline"
         label="Log in"
       />
