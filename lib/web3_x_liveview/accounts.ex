@@ -382,4 +382,16 @@ defmodule Web3XLiveview.Accounts do
          true <- Web3x.Wallet.verify_message?(user.public_address, message, user.signature),
          do: user
   end
+
+  @doc """
+  Returns a list of all users
+  """
+  def get_users_map(ids) do
+    query =
+      from u in User,
+        where: u.id in ^ids,
+        select: {u.id, u}
+
+    query |> Repo.all() |> Enum.into(%{})
+  end
 end
