@@ -22,7 +22,6 @@ defmodule Web3XLiveviewWeb.PageLive do
     end
 
     transactions = Web3XLiveview.SmartContracts.listen_for_events(user, [], [])
-    IO.inspect(transactions)
 
     {:ok, socket |> assign(:transactions, transactions) |> assign(:user, user)}
   end
@@ -37,10 +36,24 @@ defmodule Web3XLiveviewWeb.PageLive do
       <div class="flex place-content-end">
         <div class="flex">
           <div class="p-2">
-            <.button size="lg" label="Mint NFT" class="ml-auto" to="/" />
+            <.button
+              size="lg"
+              label="Mint NFT"
+              class="ml-auto"
+              phx-hook="Metamask"
+              phx-click="mint-nft"
+              id="nft-button"
+            />
           </div>
           <div class="p-2">
-            <.button size="lg" label="Coin Transaction" class="ml-auto" to="/" />
+            <.button
+              size="lg"
+              label="Coin Transaction"
+              class="ml-auto"
+              phx-hook="Metamask"
+              phx-click="coin-transaction"
+              id="coin-button"
+            />
           </div>
         </div>
       </div>
@@ -80,6 +93,26 @@ defmodule Web3XLiveviewWeb.PageLive do
       <.td><%= format_token_id(@transaction["token_id"]) %></.td>
     </.tr>
     """
+  end
+
+  @impl true
+  def handle_event("mint-nft", params, socket) do
+    {contract_name, contract_address} =
+      contract_data = Web3XLiveview.SmartContracts.contract_data_by_name(:Token)
+
+    {:noreply, push_event(socket, "coin-transaction", %{contract_address: contract_address})}
+  end
+
+  @impl true
+  def handle_event("coin-transaction", params, socket) do
+    {contract_name, contract_address} =
+      contract_data = Web3XLiveview.SmartContracts.contract_data_by_name(:MetaCoin)
+
+    {:noreply,
+     push_event(socket, "coin-transaction", %{
+       contract_address: contract_address,
+       to_address: "0x387386e5b2d973b36ed0f8a73a62231edd51e031"
+     })}
   end
 
   @impl true

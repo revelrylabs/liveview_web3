@@ -30,6 +30,12 @@ defmodule Web3XLiveview.SmartContracts do
   end
 
   @doc """
+  Returns contract data by name
+  """
+  def contract_data_by_name(contract_name),
+    do: Enum.find(list_all(), fn {name, _address} -> contract_name == name end)
+
+  @doc """
   Registers all smart contracts for use
   """
   def register_all do
