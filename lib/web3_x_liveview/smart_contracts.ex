@@ -5,9 +5,9 @@ defmodule Web3XLiveview.SmartContracts do
   """
 
   @contracts [
-    {:VerifySignature, "0x2Ee74Eb056426CB7dB2DEb0D5A98a0965cec4B75"},
-    {:Token, "0x3380BaaAfbaC5F7de8ccA9150148c33f38599042"},
-    {:MetaCoin, "0xaae48989946Cd0Ff377F4dEa4576e0e69d7B0502"}
+    {:VerifySignature, "0x3380BaaAfbaC5F7de8ccA9150148c33f38599042"},
+    {:Token, "0x4fb07432fBA39fC8185c686808467d596c012a0b"},
+    {:MetaCoin, "0x2Ee74Eb056426CB7dB2DEb0D5A98a0965cec4B75"}
   ]
 
   defp base_path, do: "truffle/build/contracts/"
