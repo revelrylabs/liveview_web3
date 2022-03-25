@@ -5,7 +5,7 @@ defmodule Web3XLiveview.SmartContracts do
   """
 
   @contracts [
-#    {:VerifySignature, "0x89582dAC69B3381D29329Be0FEe725BBe7e0BfC7"},
+    #    {:VerifySignature, "0x89582dAC69B3381D29329Be0FEe725BBe7e0BfC7"},
     {:Token, "0xfbE3a7454F6700918F374edF416c9c3C7a7aF9Da"},
     {:MetaCoin, "0x0B4fA57c984c2BcFA6D309a3FC310f6a67AB1c49"}
   ]
@@ -106,14 +106,18 @@ defmodule Web3XLiveview.SmartContracts do
     # Create filters
     filter_ids = if Enum.empty?(filter_ids), do: create_filters_for_user(user), else: filter_ids
     # Get our changes from the blockchain
+    transactions =
+      if Enum.empty?(known_transactions),
+        do: all_known_transactions(known_transactions, filter_ids),
+        else: new_transactions(known_transactions, filter_ids)
+
     transaction_receipts =
-      known_transactions
-      |> all_known_transactions(filter_ids)
+      transactions
       |> List.flatten()
       |> Enum.uniq()
       |> get_transaction_receipts()
 
-    remove_filters_for_user(filter_ids)
+#    remove_filters_for_user(filter_ids)
     # Some delay in milliseconds. Recommended to save bandwidth, and not spam.
     :timer.sleep(1000)
     # Use the pubsub associated with Presence to send back all transactions
@@ -121,7 +125,7 @@ defmodule Web3XLiveview.SmartContracts do
       transactions: transaction_receipts
     })
 
-    transaction_receipts
+    %{transactions: transaction_receipts, filter_ids: filter_ids}
   end
 
   def all_known_transactions(known_transactions, filter_ids) do
@@ -129,6 +133,19 @@ defmodule Web3XLiveview.SmartContracts do
       {:ok, event_list} = Web3x.Client.call_client(:eth_get_filter_logs, [filter])
       event_list
     end
+  end
+
+  def new_transactions(known_transactions, filter_ids) do
+    new_transactions =
+      for filter <- filter_ids do
+        {:ok, event_list} = Web3x.Contract.get_filter_changes("0x2")
+        event_list
+      end
+
+    cleaned_up_transactions =
+      Enum.reject(new_transactions, fn transaction -> is_nil(transaction) end)
+
+    known_transactions ++ cleaned_up_transactions
   end
 
   def get_transaction_receipts(transactions) do

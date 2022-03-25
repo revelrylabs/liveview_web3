@@ -21,9 +21,14 @@ defmodule Web3XLiveviewWeb.PageLive do
       Phoenix.PubSub.subscribe(PubSub, @presence)
     end
 
-    transactions = Web3XLiveview.SmartContracts.listen_for_events(user, [], [])
+    %{transactions: transactions, filter_ids: filter_ids} =
+      Web3XLiveview.SmartContracts.listen_for_events(user, [], [])
 
-    {:ok, socket |> assign(:transactions, transactions) |> assign(:user, user)}
+    {:ok,
+     socket
+     |> assign(:transactions, transactions)
+     |> assign(:user, user)
+     |> assign(:filter_ids, filter_ids)}
   end
 
   @impl true
@@ -100,13 +105,12 @@ defmodule Web3XLiveviewWeb.PageLive do
     {contract_name, contract_address} =
       contract_data = Web3XLiveview.SmartContracts.contract_data_by_name(:Token)
 
-    {:noreply, push_event(socket, "coin-transaction", %{contract_address: contract_address})}
+    {:noreply, push_event(socket, "mint-nft", %{contract_address: contract_address, user_address: socket.assigns.user.public_address})}
   end
 
   @impl true
   def handle_event("coin-transaction", params, socket) do
-    {contract_name, contract_address} =
-      contract_data = Web3XLiveview.SmartContracts.contract_data_by_name(:MetaCoin)
+    {_contract_name, contract_address} = Web3XLiveview.SmartContracts.contract_data_by_name(:MetaCoin)
 
     {:noreply,
      push_event(socket, "coin-transaction", %{
@@ -121,7 +125,7 @@ defmodule Web3XLiveviewWeb.PageLive do
     presence = Web3XLiveviewWeb.Presence.get_by_key("blockchain:presence", user.id)
 
     if is_map(presence) do
-      Web3XLiveview.SmartContracts.listen_for_events(user, transactions, [])
+      Web3XLiveview.SmartContracts.listen_for_events(user, transactions, socket.assigns.filter_ids)
     end
 
     {:noreply, assign(socket, transactions: transactions)}
