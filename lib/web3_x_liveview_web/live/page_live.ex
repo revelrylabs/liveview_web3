@@ -40,7 +40,7 @@ defmodule Web3XLiveviewWeb.PageLive do
       </div>
       <div class="flex place-content-end">
         <div class="flex">
-          <div class="p-2">
+      <!--    <div class="p-2">
             <.button
               size="lg"
               label="Mint NFT"
@@ -49,7 +49,7 @@ defmodule Web3XLiveviewWeb.PageLive do
               phx-click="mint-nft"
               id="nft-button"
             />
-          </div>
+          </div> -->
           <div class="p-2">
             <.button
               size="lg"

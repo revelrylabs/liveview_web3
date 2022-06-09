@@ -539,15 +539,6 @@ export const Metamask = {
             contract.sendCoin(event.detail.to_address, 10)
 
         })
-
-        window.addEventListener("phx:mint-nft", (event) => {
-            // let contract = new ethers.Contract(event.detail.contract_address, tokenAbi, signer)
-            // signer.getAddress.then((address) => {
-            //     contract.mint(adde)
-            // })
-
-        })
-
     },
 }
 

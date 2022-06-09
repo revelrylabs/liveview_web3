@@ -5,8 +5,6 @@ defmodule Web3XLiveview.SmartContracts do
   """
 
   @contracts [
-    #    {:VerifySignature, "0x89582dAC69B3381D29329Be0FEe725BBe7e0BfC7"},
-    {:Token, "0xfbE3a7454F6700918F374edF416c9c3C7a7aF9Da"},
     {:MetaCoin, "0x0B4fA57c984c2BcFA6D309a3FC310f6a67AB1c49"}
   ]
 
@@ -41,7 +39,6 @@ defmodule Web3XLiveview.SmartContracts do
   def register_all do
     for contract_data <- @contracts do
       register(contract_data)
-      #      Web3x.Rpc.
     end
   end
 
@@ -106,10 +103,10 @@ defmodule Web3XLiveview.SmartContracts do
     # Create filters
     filter_ids = if Enum.empty?(filter_ids), do: create_filters_for_user(user), else: filter_ids
     # Get our changes from the blockchain
-    transactions =
-      if Enum.empty?(known_transactions),
-        do: all_known_transactions(known_transactions, filter_ids),
-        else: new_transactions(known_transactions, filter_ids)
+    transactions = all_known_transactions(known_transactions, filter_ids)
+#      if Enum.empty?(known_transactions),
+#        do: all_known_transactions(known_transactions, filter_ids),
+#        else: new_transactions(known_transactions, filter_ids)
 
     transaction_receipts =
       transactions
@@ -119,7 +116,7 @@ defmodule Web3XLiveview.SmartContracts do
 
 #    remove_filters_for_user(filter_ids)
     # Some delay in milliseconds. Recommended to save bandwidth, and not spam.
-    :timer.sleep(1000)
+    :timer.sleep(2000)
     # Use the pubsub associated with Presence to send back all transactions
     Phoenix.PubSub.broadcast(Web3XLiveview.PubSub, "blockchain:presence", %{
       transactions: transaction_receipts
